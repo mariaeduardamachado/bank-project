@@ -1,7 +1,7 @@
 FactoryBot.define do 
 	factory :user do
 		name {"Maria Eduarda Machado Alves"}
-		email {"mariaeduarda.0450@gmail.com.br"}
+		email {"mariaeduarda0450@gmail.com"}
 		phone {"62984923784"}
 		cpf {"70853780188"}
 		rg {"405045153"}
