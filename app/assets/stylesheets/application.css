@@ -63,3 +63,7 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
+
+.form-control {
+  text-align: center;
+}
