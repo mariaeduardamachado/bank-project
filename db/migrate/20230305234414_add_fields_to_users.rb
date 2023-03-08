@@ -12,7 +12,5 @@ class AddFieldsToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :cep, :integer
     add_column :users, :income, :string
     add_column :users, :patrimony, :string
-    add_column :users, :agency, :integer
-    add_column :users, :account, :integer
   end
 end

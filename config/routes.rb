@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to:"user/conta#index"
+  devise_for :users 
+  
+  root to:"user/conta#index" 
 
   resources :translations do
     get 'deposit', on: :new

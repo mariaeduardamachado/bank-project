@@ -1,5 +1,7 @@
+
 <%= form_with model: @translation do |form| %>
   <div>
+  <%= form.collection_select(:user_id, User.all, :id, :name, {prompt:true}, {class: 'form-control'}) %>
     <%= form.label :translation_value %><br>
     <%= form.text_field :translation_value %>
   </div>
@@ -8,8 +10,29 @@
     <%= form.label :translation_type %><br>
     <%= form.text_area :translation_type %>
   </div>
-  
+
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enviar</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Senha</h1>
+      </div>
+      <div class="modal-body">
+        <%= form.label :password_translation %><br>
+        <%= form.text_field :password_translation %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+         <%= form.submit 'Enviar', class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+</div>
   <div>
-    <%= form.submit %>
   </div>
 <% end %>

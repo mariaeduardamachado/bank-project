@@ -3,7 +3,9 @@ body {
 }
 
 .container {
+  height: 790px;
   max-width: 960px;
+  text-align: center;
 }
 
 .pricing-header {

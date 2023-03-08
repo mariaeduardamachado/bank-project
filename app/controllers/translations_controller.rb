@@ -13,11 +13,11 @@ class TranslationsController < ApplicationController
 
   def deposit
     @translation = Translation.new
+
   end
 
   def create
-    byebug
-    @translation = Translation.new(translations_params)
+    @translation = Translations::TranslationsService.run(translations_params, current_user)
 
     if @translation.update(translations_params)
       redirect_to @translation
@@ -33,7 +33,7 @@ class TranslationsController < ApplicationController
   private
 
   def translations_params
-    params.require(:translation).permit(:translation_value, :translation_type)
+    params.require(:translation).permit(:translation_value, :translation_type, :user_id, :password_translation)
   end
 
 

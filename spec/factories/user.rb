@@ -13,9 +13,11 @@ FactoryBot.define do
 		cep {"73357-025"}
 		income {"4000"}
 		patrimony {"19000"}
-		agency {"5443"}
-		account {"02215357"}
+		sex {"Feminino"}
+		password_card {"25151302"}
 		avatar {Rack::Test::UploadedFile.new(Rails.root.join("spec","support", "IMG_6829.jpeg"),"image/png")}
 		password {"123456"}
+		city {"Trindade"}
+		state {"GO"}
 	end
 end

@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :phone, :cpf, :rg, :road, :neighborhood, :number, :complement,
-            :cep, :income, :patrimony, :number, presence: true
+  validates :name, :email,:phone, :cpf, :rg, :road, :neighborhood, :number, :complement,
+            :active, :cep, :income, :patrimony,  :sex, :password_card,
+            :city, :state, presence: true
 
   has_one_attached :avatar
   has_one :translation
