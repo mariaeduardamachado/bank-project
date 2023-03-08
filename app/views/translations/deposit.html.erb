@@ -1,0 +1,15 @@
+<%= form_with model: @translation do |form| %>
+  <div>
+    <%= form.label :translation_value %><br>
+    <%= form.text_field :translation_value %>
+  </div>
+
+  <div>
+    <%= form.label :translation_type %><br>
+    <%= form.text_area :translation_type %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

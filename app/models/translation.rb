@@ -1,5 +1,5 @@
 class Translation < ApplicationRecord
-  has_many :user, foreign_key: :user_id
+  belongs_to :user
 
   validates :translation_value, :translation_type , presence: true
   

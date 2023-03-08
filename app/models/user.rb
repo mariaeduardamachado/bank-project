@@ -8,4 +8,5 @@ class User < ApplicationRecord
             :cep, :income, :patrimony, :number, presence: true
 
   has_one_attached :avatar
+  has_one :translation
 end

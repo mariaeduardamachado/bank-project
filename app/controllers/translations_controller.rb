@@ -11,13 +11,18 @@ class TranslationsController < ApplicationController
     @translation = Translation.new
   end
 
+  def deposit
+    @translation = Translation.new
+  end
+
   def create
-    @translation = Translation.find(params[:id])
+    byebug
+    @translation = Translation.new(translations_params)
 
     if @translation.update(translations_params)
-      redirect_to@translation
+      redirect_to @translation
     else
-      render :edit, status: :unprocessable_entity
+      render :deposit, status: :unprocessable_entity
     end
   end
 
@@ -28,11 +33,9 @@ class TranslationsController < ApplicationController
   private
 
   def translations_params
-    params.requeri(:translations).permit(:translation_value, :translation_type, :user_id)
+    params.require(:translation).permit(:translation_value, :translation_type)
   end
 
-  def deposit
-    @translation = Translation.new
-  end
+
 
 end
