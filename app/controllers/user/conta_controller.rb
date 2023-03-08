@@ -2,12 +2,13 @@ class User::ContaController < UserController
   before_action :set_user, only: [:edit, :update]
 
   def index
-    @users = User.all
   end
 
   def edit
   end
 
+  def show
+  end
 
   private 
 

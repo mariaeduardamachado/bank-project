@@ -72,3 +72,7 @@
   width: 120px;
   height: 50px;
 }
+
+.col {
+  max-width: 380px;
+}

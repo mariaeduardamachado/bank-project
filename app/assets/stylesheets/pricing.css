@@ -3,9 +3,12 @@ body {
 }
 
 .container {
-  height: 790px;
+  height: 500px;
+  max-height: 500px;
   max-width: 960px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .pricing-header {

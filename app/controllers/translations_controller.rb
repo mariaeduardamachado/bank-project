@@ -19,10 +19,10 @@ class TranslationsController < ApplicationController
   def create
     @translation = Translations::TranslationsService.run(translations_params, current_user)
 
-    if @translation.update(translations_params)
-      redirect_to @translation
-    else
+    if @translation == false
       render :deposit, status: :unprocessable_entity
+    else
+      render :new
     end
   end
 
@@ -33,9 +33,7 @@ class TranslationsController < ApplicationController
   private
 
   def translations_params
-    params.require(:translation).permit(:translation_value, :translation_type, :user_id, :password_translation)
+    params.require(:translation).permit(:translation_value, :translation_type, :user_id, :password_translation, :balance)
   end
-
-
 
 end

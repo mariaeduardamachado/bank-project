@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Translation, type: :model do
   it "translation is valid" do 
-    translation = Translation.new(translation_value:"8000", translation_type:"Deposito",user_id:"1")
+    translation = Translation.new(translation_value:"8000", translation_type:"Deposito",user_id:"1",password_translation:"25151302",)
     expect(translation).to be_valid
   end
 

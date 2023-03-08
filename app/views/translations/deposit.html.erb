@@ -1,38 +1,35 @@
-
-<%= form_with model: @translation do |form| %>
-  <div>
-  <%= form.collection_select(:user_id, User.all, :id, :name, {prompt:true}, {class: 'form-control'}) %>
-    <%= form.label :translation_value %><br>
-    <%= form.text_field :translation_value %>
-  </div>
-
-  <div>
-    <%= form.label :translation_type %><br>
-    <%= form.text_area :translation_type %>
-  </div>
-
-   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enviar</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Senha</h1>
-      </div>
-      <div class="modal-body">
-        <%= form.label :password_translation %><br>
-        <%= form.text_field :password_translation %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-         <%= form.submit 'Enviar', class:"btn btn-primary" %>
-      </div>
+<div class="col">
+  <div class="card mb-3 rounded-4 shadow-sm">
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal">Deposito</h4>
     </div>
+    <%= form_with model: @translation do |form| %>
+      <div class="card-body">
+       <h2 class="card-title pricing-card-title"><%= form.label "Autor(a) da Tranderência" %><br></h2>
+        <%= form.collection_select(:user_id, User.all, :id, :name, {prompt:false}, {class: 'form-control'}) %>
+        <h3 class="card-title pricing-card-title"><%= form.label "R$" %></h3>
+        <%= form.text_field :translation_value, class: 'form-control ', onkeypress:"$(this).mask('R$000.000,00');",type:"text" %>
+        <h2 class="card-title pricing-card-title"><%= form.label "Tipo da Transferencia" %><br></h2>
+        <%= form.radio_button :translation_type, {prompt:'Deposito'} %><span style="font-size:15px;">Deposito</span>
+      </div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Enviar</button>
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <%= form.label "Senha" %><br>
+              <%= form.text_field :password_translation, type:"password" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <%= form.submit 'Enviar', class:"btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <br>
   </div>
-
 </div>
-  <div>
-  </div>
-<% end %>

@@ -1,5 +1,5 @@
 <div class="container">
-  <%= image_tag("cover.jpg", alt:"logo")%>
+  <%= image_tag("cover.jpg", class:"mb-4", alt:"Logo", width:"72", height:"57")%>
   <div class="center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
@@ -26,3 +26,5 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+

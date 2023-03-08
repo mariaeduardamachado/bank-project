@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_134059) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_122613) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,11 +42,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_134059) do
   create_table "translations", force: :cascade do |t|
     t.string "translation_value"
     t.string "translation_type"
+    t.string "balance"
+    t.string "password_translation"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "balance"
-    t.string "password_translation"
     t.index ["user_id"], name: "index_translations_on_user_id"
   end
 
@@ -70,12 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_134059) do
     t.integer "cep"
     t.string "income"
     t.string "patrimony"
-    t.integer "agency"
-    t.integer "account"
     t.string "sex"
-    t.string "encrypted_password_card", default: "", null: false
-    t.string "reset_password_card_token"
-    t.datetime "reset_password_card_sent_at"
+    t.string "password_card", default: "", null: false
     t.string "city"
     t.string "state"
     t.integer "balance"
