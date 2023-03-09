@@ -10,7 +10,7 @@
         <h3 class="card-title pricing-card-title"><%= form.label "R$" %></h3>
         <%= form.text_field :translation_value, class: 'form-control ',type:"text" %>
         <h2 class="card-title pricing-card-title"><%= form.label "Tipo da translação" %><br></h2>
-        <%= form.radio_button :translation_type, {prompt:'Deposito'} %><span style="font-size:15px;">Deposito</span>
+        <%= form.radio_button :translation_type, {prompt:'Deposito'} %><span style="font-size:15px;"> Deposito</span>
       </div>
       <%= render form%>  
     <% end %>

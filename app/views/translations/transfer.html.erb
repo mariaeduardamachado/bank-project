@@ -7,10 +7,12 @@
       <div class="card-body">
         <h2 class="card-title pricing-card-title"><%= form.label "Autor(a) da Translação" %><br></h2>
         <%= form.collection_select(:user_id, User.where(id:current_user.id), :id, :name, {prompt:false}, {class: 'form-control'}) %>
+        <h2 class="card-title pricing-card-title"><%= form.label "Usuário que recebe a Translação" %><br></h2>
+        <%= form.collection_select(:transferred_user, User.all, :id, :name, {prompt:false}, {class: 'form-control'}) %>
         <h3 class="card-title pricing-card-title"><%= form.label "R$" %></h3>
         <%= form.text_field :translation_value, class: 'form-control ',type:"text" %>
         <h2 class="card-title pricing-card-title"><%= form.label "Tipo da translação" %><br></h2>
-        <%= form.radio_button :translation_type, {prompt:'Transferência'} %><span style="font-size:15px;">Transferência</span>
+        <%= form.radio_button :translation_type, {prompt:'Transferência'} %><span style="font-size:15px;"> Transferência</span>
       </div>
       <%= render form%>  
     <% end %>

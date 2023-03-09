@@ -64,3 +64,7 @@ end
 class Rack::Test::UploadeFile
   attr_reader :headers
 end
+
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+end

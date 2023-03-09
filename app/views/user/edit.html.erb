@@ -1,0 +1,96 @@
+<body class="bg-light">   
+  <div class="container">
+    <main>
+      <div class="py-5">
+        <h2>Formulário</h2>
+      </div>
+        <hr class="my-2">
+      <div class="rowform">
+        <div class="col-md-11">
+          <%= form_with class:"needs-validation", model: @user do |form| %>
+            <div class="row g-3">
+              <div class="col-sm-4">
+                <label for="firstName" class="form-label">Nome</label>
+                <%= form.text_field :name, type:"text", class:"form-control", id:"firstName"%>
+              </div>
+              <div class="col-sm-4">
+                <label for="phone" class="form-label">Telefone</label>
+                <%= form.text_field :phone, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-sm-4">
+                <label for="cpf" class="form-label">CPF</label>
+                <%= form.text_field :cpf, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-sm-4">
+                <label for="cpf" class="form-label">RG</label>
+                <%= form.text_field :rg, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-md-4">
+                <label for="state" class="form-label">Sexo</label>
+                <%= form.text_field :sex, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="email" class="form-label">Email</label>
+                <%= form.text_field :email, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">CEP</label>
+                <%= form.text_field :cep, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Cidade</label>
+                <%= form.text_field :city, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Estado</label>
+                <%= form.text_field :state, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Rua</label>
+                <%= form.text_field :road, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Numero</label>
+                <%= form.text_field :number, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Complemento</label>
+                <%= form.text_field :complement, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Bairro</label>
+                <%= form.text_field :neighborhood, type:"text", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Patrimônio</label>
+                <%= form.text_field :patrimony, type:"text", class:"form-control" %>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Renda</label>
+                <%= form.text_field :income, type:"text", class:"form-control" %>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Senha de Transferência</label>
+                <%= form.text_field :password_card, type:"password", class:"form-control" %>
+              </div>
+               <div class="col-4">
+                <label for="address" class="form-label">Senha</label>
+                <%= form.text_field :password, type:"password", class:"form-control"%>
+              </div>
+              <div class="col-4">
+                <label for="address" class="form-label">Senha</label>
+                <%= form.text_field :password_confirmation, type:"password", class:"form-control"%>
+              </div>
+              <div class="col-2">
+              <label for="formFileLg" class="form-label">Foto</label>
+                <%= form.file_field :avatar, type:"file", class:"form-control form-control-lg"%>
+              </div>
+            </div>
+            <hr class="my-2">
+            <%= form.submit "Enviar", class:" btn btn-primary btn-lg" %>
+          <% end %>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>

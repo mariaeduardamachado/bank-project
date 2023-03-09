@@ -15,7 +15,7 @@ FactoryBot.define do
 		patrimony {"19000"}
 		sex {"Feminino"}
 		password_card {"25151302"}
-		avatar {Rack::Test::UploadedFile.new(Rails.root.join("spec","support", "IMG_6829.jpeg"),"image/png")}
+		avatar {nil}
 		password {"123456"}
 		city {"Trindade"}
 		state {"GO"}

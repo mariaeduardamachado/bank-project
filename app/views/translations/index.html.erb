@@ -1,30 +1,32 @@
-<h1>Extrato Translações</h1>
-<br>
-<%= link_to "Nova Translação",  new_translation_path,  class:"btn btn-outline-primary" %>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Tipo da Translação</th>
-      <th scope="col">Valor da Translação</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @translations.each do |article| %>
-      <br>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <h1>Extrato Translações</h1>
+  <br>
+  <%= link_to "Nova Translação",  user_index_path,  class:"btn btn-outline-primary" %>
+  <br>
+  <table class="table">
+    <thead>
+     <br>
       <tr>
-       <th>
-          <%= article.id %>
-        </th>
-        <th>
-          <%= article.translation_type %>
-        </th>
-        <th>
-          R$ <%= article.translation_value %>
-        </th>
+        <th scope="col">Tipo da Translação</th>
+        <th scope="col">Valor da Translação</th>
+        <th scope="col">Saldo Anterior</th>
+        <th scope="col">Usuário Tranferido</th>
+
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @translations.each do |translation| %>
+        <br>
+        <tr>
+          <th>
+            <%= translation.translation_type %>
+          </th>
+          <th>
+            R$ <%= translation.translation_value %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
