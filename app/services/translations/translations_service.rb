@@ -14,7 +14,6 @@ module Translations
       @password = @params[:password_translation]
       @password_user = @current_user.password_card
       @translation = Translation.new(@params)
-     
     end
 
     def run
@@ -24,10 +23,14 @@ module Translations
     private
 
     def translation
+
+      withdraw_type = ("prompt Saque" || "Saque")
+      deposit_type = ("prompt Deposito" || "Deposito")
+      
       if @transfer_type.present? &&  @transfer_value.present? &&  @password.present?  && @password == @password_user
-        if @transfer_type == ("prompt Deposito" || "Deposito")
+        if @transfer_type == deposit_type
           deposit
-        elsif @transfer_type == ("prompt Saque" || "Saque")
+        elsif @transfer_type == withdraw_type
           withdraw
         else 
           transfer
@@ -41,24 +44,36 @@ module Translations
     def deposit
       deposit = "Deposito"
       @translation.save
-      status = @translation.update_columns(balance: @transfer_value, translation_type: deposit, user_id: current_user.id)
+      status = @translation.update_columns(balance: @transfer_value, translation_type: deposit)
       @translation = status == true ? @translation : false
     end
 
     def withdraw
-      deposit = "Saque"
-      @translation.save
-      status = @translation.update_columns(balance: @transfer_value, translation_type: deposit, user_id: current_user.id)
-      @translation = status == true ? @translation : false
+
+      withdraw = "Saque"
+      value = current_user.balance.to_f - @transfer_value.to_f
+
+      if  @transfer_value <= current_user.balance 
+        @translation.save
+        status = @translation.update_columns(balance: value, translation_type: deposit)
+        @translation = status == true ? @translation : false
+      else
+        @translation = false
+      end
+
     end
 
     def transfer
-      deposit = "Transferência"
-      @translation.save
-      status = @translation.update_columns(balance: @transfer_value, translation_type: deposit, user_id: current_user.id)
-      @translation = status == true ? @translation : false
+      transfer = "Transferência"
+      if  @transfer_value <= current_user.balance 
+        @translation.save
+        status = @translation.update_columns(balance: @value, translation_type: deposit)
+        @translation = status == true ? @translation : false
+      else
+        @translation = false
+      end
+
     end
 
   end
 end
-@params

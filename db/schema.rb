@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_122613) do
     t.string "balance"
     t.string "password_translation"
     t.integer "user_id"
+    t.integer "transfer_user"
+    t.integer "transferred_user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_translations_on_user_id"
@@ -73,8 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_122613) do
     t.string "sex"
     t.string "password_card", default: "", null: false
     t.string "city"
+    t.string "balance"
     t.string "state"
-    t.integer "balance"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

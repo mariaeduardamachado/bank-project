@@ -5,6 +5,5 @@ class AddUser < ActiveRecord::Migration[7.0]
     add_column :users, :city, :string
     add_column :users, :balance, :string
     add_column :users, :state, :string
-    add_column :users, :balance, :integer
   end
 end

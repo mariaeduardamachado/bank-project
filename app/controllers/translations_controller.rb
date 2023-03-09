@@ -1,4 +1,5 @@
 class TranslationsController < ApplicationController
+  before_action :set_translation, only: [:withdraw, :transfer, :deposit]
   def index
     @translations = Translation.all    
   end
@@ -7,27 +8,22 @@ class TranslationsController < ApplicationController
     @translation = Translation.find(params[:id])
   end
 
-  def new
-    @translation = Translation.new
+  def withdraw
+  end
+
+  def transfer
   end
 
   def deposit
-    @translation = Translation.new
-
   end
 
   def create
     @translation = Translations::TranslationsService.run(translations_params, current_user)
-
     if @translation == false
       render :deposit, status: :unprocessable_entity
     else
-      render :new
+      redirect_to @article
     end
-  end
-
-  def edit
-    @translation = Translation.find(params[:id])
   end
 
   private
@@ -36,4 +32,7 @@ class TranslationsController < ApplicationController
     params.require(:translation).permit(:translation_value, :translation_type, :user_id, :password_translation, :balance)
   end
 
+  def set_translation
+    @translation = Translation.new
+  end
 end

@@ -6,6 +6,8 @@ class CreateTranslations < ActiveRecord::Migration[7.0]
       t.string :balance
       t.string :password_translation
       t.integer :user_id
+      t.integer :transfer_user
+      t.integer :transferred_user
       t.timestamps
     end
     add_index :translations, :user_id

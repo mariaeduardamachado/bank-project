@@ -1,7 +1,7 @@
 <div class="col">
   <div class="card mb-3 rounded-4 shadow-sm">
     <div class="card-header py-3">
-      <h4 class="my-0 fw-normal">Deposito</h4>
+      <h4 class="my-0 fw-normal">Transferência</h4>
     </div>
     <%= form_with model: @translation do |form| %>
       <div class="card-body">
@@ -10,7 +10,7 @@
         <h3 class="card-title pricing-card-title"><%= form.label "R$" %></h3>
         <%= form.text_field :translation_value, class: 'form-control ',type:"text" %>
         <h2 class="card-title pricing-card-title"><%= form.label "Tipo da translação" %><br></h2>
-        <%= form.radio_button :translation_type, {prompt:'Deposito'} %><span style="font-size:15px;">Deposito</span>
+        <%= form.radio_button :translation_type, {prompt:'Transferência'} %><span style="font-size:15px;">Transferência</span>
       </div>
       <%= render form%>  
     <% end %>

@@ -1,39 +1,10 @@
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar col-md-3 col-lg-2 me-0 px-3 fs-6" href="/"> <%= image_tag("cover.jpg", alt:"logo", class: 'logo')%></a>
+  <a class="navbar col-md-3 col-lg-2 me-0 px-3 fs-6" href="/user"> <%= image_tag("cover.jpg", alt:"logo", class: 'logo')%></a>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
- 
-      <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-      </a>
-          
-      
+    <%= image_tag(current_user.avatar, alt:"mdo", width:"65", height:"65", class:"rounded-circle") %> <br> 
     </div>
   </div>
 </header>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar" class="align-text-bottom"></span>
-            This week
-          </button>
-        </div>
-      </div>
-    </main>
-  </div>
-</div>
+ 
