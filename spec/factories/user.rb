@@ -6,6 +6,7 @@ FactoryBot.define do
 		cpf {"70853780188"}
 		rg {"405045153"}
 		road {"3"}
+		balance{"2000"}
 		neighborhood {"Setor Residencial Leste (Planaltina)"}
 		number {"905"}
 		complement {"Quadra Quadra 19 Conjunto E"}

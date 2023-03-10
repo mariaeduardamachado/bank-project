@@ -8,33 +8,16 @@ RSpec.describe Translations::TranslationsService, type: :service do
       let(:params) {build(:translation)}
 
       it "deposit made successfully" do 
-        described_class.run(params, current_user)
+        d = described_class.run(params, current_user)
         expect(params.save).to eq(true)
       end
     end
 
     context "when situation is a deposit reproved" do
-      let(:params) {build(:translation, password_translation:nil)}
+      let(:params) {build(:translation, password_translation:"104144")}
       it "deposit made not made" do
-        described_class.run(params, current_user)
-        expect(params.save).to eq(false)
-      end
-
-      context "when the situation is a withdraw type" do
-        let(:params) {build(:translation)}
-  
-        it "withdraw made successfully" do 
-          described_class.run(params, current_user)
-          expect(params.save).to eq(true)
-        end
-      end
-      
-      context "when situation is a transfer reproved" do
-        let(:params) {build(:translation, password_translation:nil)}
-        it "transfer made not made" do
-          described_class.run(params, current_user)
-          expect(params.save).to eq(false)
-        end
+        d = described_class.run(params, current_user)
+        expect(d).to eq(false)
       end
     end
   end

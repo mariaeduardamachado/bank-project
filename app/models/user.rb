@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, :email,:phone, :cpf, :rg, :road, :neighborhood, :number, :complement,
-            :active, :cep, :income, :patrimony,  :sex, :password_card,
+            :cep, :income, :patrimony,  :sex, :password_card,
             :city, :state, presence: true
 
   has_one_attached :avatar

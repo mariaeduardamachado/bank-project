@@ -1,30 +1,37 @@
-<div class="container">
-  <%= image_tag("cover.jpg", class:"mb-4", alt:"Logo", width:"72", height:"57")%>
-  <div class="center">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+
+<div class="offset-4 col-4 authentication-inner py-5">
+  <div class="card">
+    <div class="p-4 p-sm-5">
+      <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+        <%= image_tag('cover.jpg', style: 'height: 90px;') %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+      <% if resource_name == :admin %>
+        <h5 class="text-center text-muted font-weight-normal mb-4">Acesso ao Painel Administrativo</h5>
+      <% end %>
+      <% if alert %>
+        <div class="d-flex justify-content-center">
+          <p class="text-danger"><%= alert %></p>
         </div>
       <% end %>
-      <div class="actions">
-
-        <%= f.submit "Log in" %>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, class: 'form-label' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:" form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, class: 'form-label' %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+        <div class="d-flex justify-content-center align-items-center m-0">
+          <%= f.submit 'Entrar', class: "btn btn-primary" %>
+        </div>
+         <br>
+      <% end %>
+        <%= link_to new_user_registration_path, class: "d-flex justify-content-center align-items-center mt-4" do %>
+          Cadastrar
+        <% end %>
+    </div>
   </div>
 </div>
-
 

@@ -5,9 +5,9 @@ class TranslationsController < ApplicationController
   end
 
   def show
-    @translation, @teste = Translation.find(params[:id])
+    @translation = Translation.find(params[:id])
   end
-
+  
   def withdraw
   end
 
