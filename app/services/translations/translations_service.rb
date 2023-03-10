@@ -55,9 +55,10 @@ module Translations
     end
 
     def withdraw
+     
       withdraw = "Saque"
       value = current_user.balance.to_f - @transfer_value.to_f
-      balance = current_user.balance >= @transfer_value
+      balance = current_user.balance <= @transfer_value
 
       if balance
         translation = Translation.new(@params)
